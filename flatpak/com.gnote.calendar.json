@@ -32,9 +32,9 @@
       ],
       "sources": [
         {
-          "type": "dir",
-          "path": "..",
-          "skip": [".git", "build", "dist", "flatpak/.flatpak-builder", "repo", "*.flatpak"]
+          "type": "git",
+          "url": "https://github.com/gerardoarias/gnote-calendar",
+          "tag": "v2.0.0"
         }
       ]
     }
