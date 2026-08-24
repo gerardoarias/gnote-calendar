@@ -1,0 +1,41 @@
+{
+  "app-id": "com.gnote.calendar",
+  "runtime": "org.kde.Platform",
+  "runtime-version": "6.9",
+  "sdk": "org.kde.Sdk",
+  "command": "gnote-calendar",
+  "finish-args": [
+    "--share=ipc",
+    "--socket=fallback-x11",
+    "--socket=wayland",
+    "--device=dri",
+    "--filesystem=home",
+    "--filesystem=xdg-documents",
+    "--talk-name=org.freedesktop.Notifications"
+  ],
+  "modules": [
+    {
+      "name": "gnote-calendar",
+      "buildsystem": "cmake-ninja",
+      "builddir": true,
+      "config-opts": ["-DCMAKE_BUILD_TYPE=Release", "-DWITH_QT=OFF"],
+      "sources": [
+        {
+          "type": "dir",
+          "path": "..",
+          "skip": [".git", "build", "dist", "flatpak/.flatpak-builder"]
+        }
+      ],
+      "post-install": [
+        "install -Dm755 ../gui_qt.py /app/share/gnote-calendar/gui_qt.py",
+        "install -Dm755 ../gui.py /app/share/gnote-calendar/gui.py",
+        "install -Dm644 ../data/schema.sql /app/share/gnote-calendar/data/schema.sql",
+        "install -Dm644 ../packaging/gnote-calendar.desktop /app/share/applications/com.gnote.calendar.desktop",
+        "install -Dm644 ../packaging/gnote-calendar.svg /app/share/icons/hicolor/scalable/apps/gnote-calendar.svg",
+        "install -Dm644 ../requirements.txt /app/share/gnote-calendar/requirements.txt",
+        "mkdir -p /app/bin && ln -sf /app/bin/gnote-calendar /app/bin/gnote-calendar.bin || true",
+        "pip3 install --prefix=/app --no-build-isolation PySide6==6.7.3 || true"
+      ]
+    }
+  ]
+}

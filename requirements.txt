@@ -1,0 +1,18 @@
+# gnote-calendar Qt requirements
+# PySide6 es el binding Qt6 oficial (LGPL). Usa 6.7.x para compatibilidad Ubuntu 22.04+.
+# Si PySide6 no está disponible (Lite 7 sin pip), el código hace fallback a PySide2/PyQt5.
+PySide6==6.7.3
+# Alternativa ligera si PySide6 falla: comentada, instalada vía apt si existe
+# PySide2
+# PyQt5
+
+# Testing Qt
+pytest==8.2
+pytest-qt==4.4
+pytest-cov==5.0
+
+# Markdown preview opcional (ligero)
+Markdown==3.6
+
+# Lint
+pylint==3.1

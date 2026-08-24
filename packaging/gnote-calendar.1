@@ -1,0 +1,45 @@
+.TH GNOTE-CALENDAR 1 "2026-08-23" "2.0.0" "Manual de usuario"
+.SH NOMBRE
+gnote-calendar \- gestor ligero de notas y calendario (Qt)
+.SH SINOPSIS
+.B gnote-calendar
+[\-\-help] [note|event|ics|sync|check-notify]
+.br
+.B python3 gui_qt.py
+.br
+.B python3 gui.py
+.SH DESCRIPCIÓN
+App offline <60MB RAM Qt (PySide6) para Linux desde 2015. Notas con #tag, [[backlink]], checklist due/prio, plantillas, calendario mes+semana, grafo Knowledge OS, pomodoro, ICS Gmail, folder sync.
+.SH COMANDOS
+.TP
+.B note list
+Lista notas
+.TP
+.B note add "Título" "Cuerpo"
+Crea nota
+.TP
+.B note search "query"
+Busca FTS5, soporta tag:casa
+.TP
+.B event list [--month YYYY-MM]
+Lista eventos
+.TP
+.B event add "Título" "YYYY-MM-DD HH:MM" "YYYY-MM-DD HH:MM" [--note ID]
+Crea evento vinculado opcional
+.TP
+.B ics export --output FILE [--month YYYY-MM]
+Exporta .ics Gmail
+.TP
+.B ics import FILE
+Importa .ics Gmail
+.TP
+.B sync --folder ~/Notas [--watch]
+Folder sync bidireccional .md frontmatter id/title, compatible Syncthing/Nextcloud
+.TP
+.B gui_qt.py
+GUI Qt6 PySide6 <60MB, 4 secciones, markdown preview, grafo, semana vista. Fallback Tk gui.py, legacy gui_gtk4.py
+.SH ARCHIVOS
+~/.local/share/gnote-calendar/notes.db (WAL+FTS5)
+~/.config/gnote-calendar/config.ini
+.SH AUTOR
+gnote-calendar team

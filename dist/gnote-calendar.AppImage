@@ -1,0 +1,13 @@
+#!/bin/bash
+# AppImage stub Qt - gnote-calendar 2.0.0
+DIR="$(dirname "$(readlink -f "$0")")"
+# Si estamos dentro de AppDir portable
+if [ -f "$DIR/gnote-calendar/build/gnote-calendar" ]; then
+  exec python3 "$DIR/gnote-calendar/gui_qt.py" "$@"
+elif [ -f "/usr/share/gnote-calendar/gui_qt.py" ]; then
+  exec python3 /usr/share/gnote-calendar/gui_qt.py "$@"
+elif [ -f "./gui_qt.py" ]; then
+  exec python3 ./gui_qt.py "$@"
+else
+  exec python3 /usr/local/share/gnote-calendar/gui_qt.py "$@" 2>/dev/null || python3 ./gui.py "$@"
+fi

@@ -1,0 +1,13 @@
+Package: gnote-calendar
+Version: 2.0.0
+Section: office
+Priority: optional
+Architecture: amd64
+Maintainer: gnote-calendar <gnote@local>
+Depends: python3, libsqlite3-0
+Recommends: python3-pyside6 | python3-pyqt5 | python3-pyside2, python3-tk
+Description: Gestor ligero de notas y calendario para Linux (Qt Knowledge OS)
+ Notas y calendario offline, <60MB RAM Qt, modo Knowledge OS con graph, journal, pomodoro.
+ Soporta Qt6/PySide6 moderno con fallback Tk para 2015, ICS Gmail, folder sync. Legacy GTK4 en legacy/.
+Suggests: python3-pip
+Homepage: https://github.com/anomalyco/opencode

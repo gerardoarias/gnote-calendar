@@ -1,0 +1,13 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=gnote-calendar
+GenericName=Notas y Calendario
+Comment=Gestor ligero de notas y calendario - offline, <60MB RAM Qt, ICS Gmail
+Exec=python3 /usr/share/gnote-calendar/gui_qt.py
+Icon=gnote-calendar
+Terminal=false
+Categories=Office;Calendar;ProjectManagement;Notes;
+Keywords=notes;calendar;tasks;pomodoro;markdown;
+StartupNotify=true
+MimeType=text/calendar;
