@@ -30,7 +30,8 @@
                 "install -Dm755 -d /app/bin",
                 "printf '#!/bin/sh\\nexec python3 /app/share/gnote-calendar/gui_qt.py \"$@\"\\n' > /app/bin/gnote-calendar",
                 "chmod +x /app/bin/gnote-calendar",
-                "pip3 install --prefix=/app --no-build-isolation PySide6==6.7.3 Markdown || true"
+                "python3 -m ensurepip --upgrade",
+                "python3 -m pip install --prefix=/app --no-build-isolation PySide6==6.7.3 Markdown"
             ],
             "sources": [
                 {
