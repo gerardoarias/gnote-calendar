@@ -9,8 +9,11 @@ CREATE TABLE IF NOT EXISTS notes(
     title TEXT NOT NULL,
     body TEXT NOT NULL DEFAULT '',
     created_at INTEGER NOT NULL,
-    updated_at INTEGER NOT NULL
+    updated_at INTEGER NOT NULL,
+    project_id INTEGER REFERENCES projects(id) ON DELETE SET NULL DEFAULT NULL,
+    vault_path TEXT DEFAULT ''
 );
+CREATE INDEX IF NOT EXISTS idx_notes_project ON notes(project_id);
 
 CREATE TABLE IF NOT EXISTS events(
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -49,6 +52,18 @@ CREATE TABLE IF NOT EXISTS backlinks(
 );
 CREATE INDEX IF NOT EXISTS idx_backlinks_src ON backlinks(src_id);
 CREATE INDEX IF NOT EXISTS idx_backlinks_dst ON backlinks(dst_title);
+
+-- Proyectos: Obsidian vault projects (Fase 4 v2.1)
+CREATE TABLE IF NOT EXISTS projects(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    title TEXT NOT NULL UNIQUE,
+    icon TEXT DEFAULT '📁',
+    color TEXT DEFAULT '#4a90e2',
+    description TEXT DEFAULT '',
+    created_at INTEGER NOT NULL,
+    updated_at INTEGER NOT NULL
+);
+CREATE INDEX IF NOT EXISTS idx_projects_title ON projects(title);
 
 -- FTS5 para búsqueda instantánea (si no disponible, fallback a LIKE)
 CREATE VIRTUAL TABLE IF NOT EXISTS notes_fts USING fts5(title, body, content='notes', content_rowid='id', tokenize='unicode61');
