@@ -18,7 +18,7 @@
             "buildsystem": "simple",
             "build-commands": [
                 "make -j$(nproc)",
-                "install -Dm755 build/gnote-calendar /app/bin/gnote-calendar",
+                "install -Dm755 build/gnote-calendar /app/bin/gnote-calendar-cli",
                 "install -Dm755 gui_qt.py /app/share/gnote-calendar/gui_qt.py",
                 "install -Dm755 gui.py /app/share/gnote-calendar/gui.py",
                 "install -Dm755 legacy/gui_gtk4.py /app/share/gnote-calendar/gui_gtk4.py || true",
@@ -27,6 +27,9 @@
                 "install -Dm644 packaging/gnote-calendar.svg /app/share/icons/hicolor/scalable/apps/io.github.gerardoarias.gnote-calendar.svg",
                 "install -Dm644 flatpak/io.github.gerardoarias.gnote-calendar.metainfo.xml /app/share/metainfo/io.github.gerardoarias.gnote-calendar.metainfo.xml",
                 "install -Dm644 requirements.txt /app/share/gnote-calendar/requirements.txt",
+                "install -Dm755 -d /app/bin",
+                "printf '#!/bin/sh\\nexec python3 /app/share/gnote-calendar/gui_qt.py \"$@\"\\n' > /app/bin/gnote-calendar",
+                "chmod +x /app/bin/gnote-calendar",
                 "pip3 install --prefix=/app --no-build-isolation PySide6==6.7.3 Markdown || true"
             ],
             "sources": [
