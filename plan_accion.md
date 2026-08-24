@@ -268,7 +268,7 @@ tests/qt/                 # nuevos tests GUI
   - `packaging/gnote-calendar.desktop:7` → `Exec=python3 /usr/share/gnote-calendar/gui_qt.py`, `Keywords` añade `qt`.
   - `install.sh`: `PYQT_OK=$(python3 -c "import PySide6" && echo 1 || echo 0)`, `pip install --user PySide6` fallback.
   - `CMakeLists.txt`/`Makefile` `WITH_QT` para `src/ui/qt/*` opcional.
-  - `flatpak/io.github.gerardoarias.gnote_calendar.json` manifest + `AppImage` `linuxdeployqt` stub.
+  - `flatpak/io.github.gerardoarias.gnote-calendar.json` manifest + `AppImage` `linuxdeployqt` stub.
   - `dist/` regenerado `.deb 624K+` y `tar.gz`.
 
 * **Pruebas:**
@@ -314,7 +314,7 @@ tests/qt/                 # nuevos tests GUI
 
 ### Fase 7 — Publicación GitHub + Flathub (1 semana) — Semana 10-11
 
-**Objetivo:** `github.com/gerardoarias/gnote-calendar` público + `io.github.gerardoarias.gnote_calendar` en Flathub para `flatpak install flathub io.github.gerardoarias.gnote_calendar` en cualquier PC.
+**Objetivo:** `github.com/gerardoarias/gnote-calendar` público + `io.github.gerardoarias.gnote-calendar` en Flathub para `flatpak install flathub io.github.gerardoarias.gnote-calendar` en cualquier PC.
 
 * **Tareas GitHub (7a):**
   - Crear repo `gerardoarias/gnote-calendar` en https://github.com/new (Public, sin README) `docs/GITHUB.md:1`.
@@ -322,28 +322,28 @@ tests/qt/                 # nuevos tests GUI
   - Release `v2.0.0` con `dist/*.deb 700K` `portable 1.7M` `AppImage` `flatpak` bundle.
 
 * **Tareas Flathub (7b):**
-  - `flatpak/io.github.gerardoarias.gnote_calendar.json` runtime `org.kde.Platform//6.9` `Sdk 6.9` (corregido de 6.7 inexistente `flatpak remote-ls flathub | grep Sdk`), `flatpak/io.github.gerardoarias.gnote_calendar.metainfo.xml` AppStream + `flatpak/flathub.json` lint.
-  - `flatpak-builder --force-clean --repo=repo build flatpak/io.github.gerardoarias.gnote_calendar.json` + `flatpak build-bundle repo gnote-calendar.flatpak io.github.gerardoarias.gnote_calendar` (local bundle para test).
-  - Fork `flathub/flathub`, PR `add io.github.gerardoarias.gnote_calendar` con manifest + metainfo + icon `packaging/gnote-calendar.svg`, `flatpak-builder-lint` + `appstreamcli validate`.
-  - Flathub CI compila, publica en `flatpak remote-ls flathub | grep io.github.gerardoarias.gnote_calendar`.
+  - `flatpak/io.github.gerardoarias.gnote-calendar.json` runtime `org.kde.Platform//6.9` `Sdk 6.9` (corregido de 6.7 inexistente `flatpak remote-ls flathub | grep Sdk`), `flatpak/io.github.gerardoarias.gnote-calendar.metainfo.xml` AppStream + `flatpak/flathub.json` lint.
+  - `flatpak-builder --force-clean --repo=repo build flatpak/io.github.gerardoarias.gnote-calendar.json` + `flatpak build-bundle repo gnote-calendar.flatpak io.github.gerardoarias.gnote-calendar` (local bundle para test).
+  - Fork `flathub/flathub`, PR `add io.github.gerardoarias.gnote-calendar` con manifest + metainfo + icon `packaging/gnote-calendar.svg`, `flatpak-builder-lint` + `appstreamcli validate`.
+  - Flathub CI compila, publica en `flatpak remote-ls flathub | grep io.github.gerardoarias.gnote-calendar`.
   - Actualizar `README.md` badge `Flathub` + `docs/MANUAL.md` sección Flatpak.
 
-* **Entregables:** `flatpak/io.github.gerardoarias.gnote_calendar.json` `6.9`, `flatpak/io.github.gerardoarias.gnote_calendar.metainfo.xml`, `gnote-calendar.flatpak` bundle, PR Flathub mergeado.
+* **Entregables:** `flatpak/io.github.gerardoarias.gnote-calendar.json` `6.9`, `flatpak/io.github.gerardoarias.gnote-calendar.metainfo.xml`, `gnote-calendar.flatpak` bundle, PR Flathub mergeado.
 
 * **Pruebas:**
   ```bash
   flatpak install flathub org.kde.Sdk//6.9 org.kde.Platform//6.9 -y
-  flatpak-builder --force-clean --repo=repo --ccache build flatpak/io.github.gerardoarias.gnote_calendar.json
-  flatpak build-bundle repo gnote-calendar.flatpak io.github.gerardoarias.gnote_calendar
+  flatpak-builder --force-clean --repo=repo --ccache build flatpak/io.github.gerardoarias.gnote-calendar.json
+  flatpak build-bundle repo gnote-calendar.flatpak io.github.gerardoarias.gnote-calendar
   flatpak install --user gnote-calendar.flatpak
-  flatpak run io.github.gerardoarias.gnote_calendar --help
-  flatpak run io.github.gerardoarias.gnote_calendar
+  flatpak run io.github.gerardoarias.gnote-calendar --help
+  flatpak run io.github.gerardoarias.gnote-calendar
   # En otro PC ya publicado:
   flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-  flatpak install flathub io.github.gerardoarias.gnote_calendar -y && flatpak run io.github.gerardoarias.gnote_calendar
+  flatpak install flathub io.github.gerardoarias.gnote-calendar -y && flatpak run io.github.gerardoarias.gnote-calendar
   ```
 
-* **Criterio:** `flatpak install flathub io.github.gerardoarias.gnote_calendar` en PC limpio instala y arranca Qt sin `xcb-cursor` manual; `flatpak-builder-lint` 0 errores.
+* **Criterio:** `flatpak install flathub io.github.gerardoarias.gnote-calendar` en PC limpio instala y arranca Qt sin `xcb-cursor` manual; `flatpak-builder-lint` 0 errores.
 
 ---
 
@@ -390,7 +390,7 @@ tests/qt/
 * [ ] `make test` 5/5 + `pytest -q` >25 + coverage `gui_qt` >70%.
 * [ ] `gnote-calendar sync --folder ~/Notas` idempotente (2 runs 0 cambios).
 * [ ] `.deb` y `tar.gz` instalables en 22.04/24.04, `.desktop` abre Qt.
-* [ ] `flatpak install flathub io.github.gerardoarias.gnote_calendar` en PC limpio (Fase 7).
+* [ ] `flatpak install flathub io.github.gerardoarias.gnote-calendar` en PC limpio (Fase 7).
 * [ ] Grafo 20 nodos arrastrable sin >60MB.
 * [ ] `QSystemTrayIcon` notifica eventos próximos 15min.
 * [ ] Docs actualizados: `README.md`, `MANUAL.md`, `ARQUITECTURA.md`, `CHANGELOG.md` 2.0.0 + badge Flathub.
@@ -420,7 +420,7 @@ Sem 6-7 Fase3 Knowledge Plus  -> graph QGraphicsView, split markdown, semana vis
 Sem 8  Fase4 packaging         -> .deb/.tar.gz/AppImage, control Recommends pyside6, manifest 6.9
 Sem 9  Fase5 QA/a11y/perf      -> coverage 80%, a11y, bench <60MB/<200ms
 Sem 9-10 Fase6 release v2.0.0 -> tag, dist/, README/MANUAL actualizados
-Sem 10-11 Fase7 Flathub        -> io.github.gerardoarias.gnote_calendar 6.9 en Flathub, flatpak install flathub ok
+Sem 10-11 Fase7 Flathub        -> io.github.gerardoarias.gnote-calendar 6.9 en Flathub, flatpak install flathub ok
 ```
 
 **Esfuerzo estimado:** 8-9 semanas 1 dev (40h/sem). **Priorización:** `Must` Fase 2 para beta usable en 5 semanas.

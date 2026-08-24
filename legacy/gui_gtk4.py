@@ -962,7 +962,7 @@ class MainWindow(Adw.ApplicationWindow):
 
 class App(Adw.Application):
     def __init__(self):
-        super().__init__(application_id="io.github.gerardoarias.gnote_calendar", flags=Gio.ApplicationFlags.FLAGS_NONE)
+        super().__init__(application_id="io.github.gerardoarias.gnote-calendar", flags=Gio.ApplicationFlags.FLAGS_NONE)
         self.connect("activate", self.on_activate)
     def on_activate(self, app):
         win = MainWindow(app)

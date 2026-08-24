@@ -56,7 +56,7 @@ pytest tests/qt -v --cov=gui_qt
 QT_QPA_PLATFORM=offscreen python3 gui_qt.py --smoke
 bash scripts/bench.sh --assert-ram 80 --assert-startup 200
 python3 -c "import gui_qt; print(gui_qt.backup_db())" && ls ~/.local/share/gnote-calendar/*.bak-*
-flatpak-builder --force-clean --repo=repo build flatpak/io.github.gerardoarias.gnote_calendar.json
+flatpak-builder --force-clean --repo=repo build flatpak/io.github.gerardoarias.gnote-calendar.json
 ```
 
 ## Firmas

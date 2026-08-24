@@ -68,7 +68,7 @@ flatpak install flathub org.kde.Sdk//6.9 -y # para OF en otro PC
 
 ## 5. Siguiente Fase 7 Flathub
 
-Una vez en GitHub público, fork `flathub/flathub` y PR `io.github.gerardoarias.gnote_calendar` (ver `flatpak/io.github.gerardoarias.gnote_calendar.json:1` `6.9`).
+Una vez en GitHub público, fork `flathub/flathub` y PR `io.github.gerardoarias.gnote-calendar` (ver `flatpak/io.github.gerardoarias.gnote-calendar.json:1` `6.9`).
 
 ## Scripts
 
