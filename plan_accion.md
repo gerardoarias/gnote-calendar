@@ -312,11 +312,16 @@ tests/qt/                 # nuevos tests GUI
   gnote-calendar note add "Release test #qt" "[[v2.0]] - [ ] smoke" && gnote-calendar note search "qt"
   ```
 
-### Fase 7 — Publicación Flathub (1 semana) — Semana 10-11
+### Fase 7 — Publicación GitHub + Flathub (1 semana) — Semana 10-11
 
-**Objetivo:** `com.gnote.calendar` en Flathub para `flatpak install flathub com.gnote.calendar` en cualquier PC.
+**Objetivo:** `github.com/gerardoarias/gnote-calendar` público + `com.gnote.calendar` en Flathub para `flatpak install flathub com.gnote.calendar` en cualquier PC.
 
-* **Tareas:**
+* **Tareas GitHub (7a):**
+  - Crear repo `gerardoarias/gnote-calendar` en https://github.com/new (Public, sin README) `docs/GITHUB.md:1`.
+  - `git remote add origin https://github.com/gerardoarias/gnote-calendar.git` + `git push -u origin main` + `git push origin v2.0.0` `scripts/push_github.sh`.
+  - Release `v2.0.0` con `dist/*.deb 700K` `portable 1.7M` `AppImage` `flatpak` bundle.
+
+* **Tareas Flathub (7b):**
   - `flatpak/com.gnote.calendar.json` runtime `org.kde.Platform//6.9` `Sdk 6.9` (corregido de 6.7 inexistente `flatpak remote-ls flathub | grep Sdk`), `flatpak/com.gnote.calendar.metainfo.xml` AppStream + `flatpak/flathub.json` lint.
   - `flatpak-builder --force-clean --repo=repo build flatpak/com.gnote.calendar.json` + `flatpak build-bundle repo gnote-calendar.flatpak com.gnote.calendar` (local bundle para test).
   - Fork `flathub/flathub`, PR `add com.gnote.calendar` con manifest + metainfo + icon `packaging/gnote-calendar.svg`, `flatpak-builder-lint` + `appstreamcli validate`.
