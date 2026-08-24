@@ -3,7 +3,7 @@
 ## 2.0.0 — 2026-08-23 (Qt PySide6 — Fase 6)
 - Migración GTK4 → Qt6 PySide6 `gui_qt.py` 80K: `QMainWindow` 1320x800, sidebar 94px 4 secciones (Notas/Calendario/Tareas/Grafo), `QCalendarWidget` + semana `QTable 24x7`, `QSyntaxHighlighter` highlight, `QFileSystemWatcher` + poll 5s, `QSystemTrayIcon` notifs 15min, `QSettings` persistencia, `backup_db` rotativo, `a11y` `setAccessibleName` + `Ctrl+H` alto contraste, `F11` maximizar fix
 - Fase 3 Knowledge Plus: `QGraphicsView` grafo embebido filtro tag, split editor `QTextEdit` + `QTextBrowser` markdown `F9` preview, tareas `due:YYYY-MM-DD prio:alta/media/baja` con filtro y colores, calendario semana doble-click crea evento
-- Packaging: `control 2.0.0` `Recommends: pyside6|pyqt5|pyside2`, `.deb 700K` `portable 1.7M` `AppImage stub`, `flatpak 6.9 org.kde.Platform` `com.gnote.calendar.json`, `install.sh` Qt detect, `legacy/gui_gtk4.py` deprecado
+- Packaging: `control 2.0.0` `Recommends: pyside6|pyqt5|pyside2`, `.deb 700K` `portable 1.7M` `AppImage stub`, `flatpak 6.9 org.kde.Platform` `io.github.gerardoarias.gnote_calendar.json`, `install.sh` Qt detect, `legacy/gui_gtk4.py` deprecado
 - Performance: `CLI 2.1M 70ms`, `Qt 80MB offscreen (50MB mínimo)`, `Tk 25MB`, `QSS` desapiñuscado `14px` padding
 
 ## 1.4.0 — 2026-08-23 (Knowledge OS + Folder Sync)

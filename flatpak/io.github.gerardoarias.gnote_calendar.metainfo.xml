@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component type="desktop-application">
-  <id>com.gnote.calendar</id>
+  <id>io.github.gerardoarias.gnote_calendar</id>
   <metadata_license>MIT</metadata_license>
   <project_license>MIT</project_license>
   <name>gnote-calendar</name>
@@ -15,9 +15,9 @@
     </p>
     <p>Features v2.0.0: FTS5 search tag:/fecha:, highlight, templates, QGraphicsView graph filter, split markdown preview F9, QSystemTray 15min notifs, QSettings persistence, backup rotation, F11 maximize fix, a11y high-contrast.</p>
   </description>
-  <launchable type="desktop-id">com.gnote.calendar.desktop</launchable>
+  <launchable type="desktop-id">io.github.gerardoarias.gnote_calendar.desktop</launchable>
   <provides>
-    <id>com.gnote.calendar.desktop</id>
+    <id>io.github.gerardoarias.gnote_calendar.desktop</id>
   </provides>
   <screenshots>
     <screenshot type="default">
@@ -28,23 +28,10 @@
   <url type="homepage">https://github.com/gerardoarias/gnote-calendar</url>
   <url type="bugtracker">https://github.com/gerardoarias/gnote-calendar/issues</url>
   <url type="help">https://github.com/gerardoarias/gnote-calendar/blob/main/docs/MANUAL.md</url>
-  <developer id="com.gerardoarias">
+  <developer id="io.github.gerardoarias">
     <name>gerardoarias</name>
   </developer>
   <content_rating type="oars-1.1" />
-  <categories>
-    <category>Office</category>
-    <category>Calendar</category>
-    <category>ProjectManagement</category>
-  </categories>
-  <keywords>
-    <keyword>notes</keyword>
-    <keyword>calendar</keyword>
-    <keyword>tasks</keyword>
-    <keyword>knowledge</keyword>
-    <keyword>markdown</keyword>
-    <keyword>pomodoro</keyword>
-  </keywords>
   <requires>
     <display_length compare="ge">768</display_length>
   </requires>
@@ -53,7 +40,7 @@
     <control>keyboard</control>
   </supports>
   <releases>
-    <release version="2.0.0" date="2026-08-23">
+    <release version="2.0.0" date="2026-08-24">
       <description>
         <p>Qt6 PySide6 v2.0.0: 4 sections 94px sidebar, month+week calendar, due/prio tasks, embedded graph, split markdown preview, QFileSystemWatcher, QSystemTray, backup rotation, a11y, F11 fix. Packaging .deb 700K portable 1.7M Flatpak 6.9.</p>
       </description>

@@ -136,12 +136,12 @@ python3 gnote-calendar/gui.py     # Tk
 ```bash
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 flatpak install flathub org.kde.Platform//6.9 org.kde.Sdk//6.9 -y
-flatpak-builder --force-clean --repo=repo --ccache build flatpak/com.gnote.calendar.json
-flatpak build-bundle repo gnote-calendar.flatpak com.gnote.calendar
+flatpak-builder --force-clean --repo=repo --ccache build flatpak/io.github.gerardoarias.gnote_calendar.json
+flatpak build-bundle repo gnote-calendar.flatpak io.github.gerardoarias.gnote_calendar
 flatpak install --user gnote-calendar.flatpak
-flatpak run com.gnote.calendar
+flatpak run io.github.gerardoarias.gnote_calendar
 # once published:
-flatpak install flathub com.gnote.calendar
+flatpak install flathub io.github.gerardoarias.gnote_calendar
 ```
 
 ---
@@ -211,7 +211,7 @@ third_party/    -> sqlite3 amalgamation 8.7M
 data/schema.sql -> WAL + FTS5 + backlinks + triggers
 tests/          -> test_core.cpp (5 suites) + tests/qt/ (8 passed)
 packaging/      -> .desktop + icon + control (Recommends pyside6) + build_dist.sh
-flatpak/        -> com.gnote.calendar.json 6.9 + metainfo.xml
+flatpak/        -> io.github.gerardoarias.gnote_calendar.json 6.9 + metainfo.xml
 dist/           -> .deb 2.0.0 (700K) + portable 1.7M + AppImage stub + gnote-calendar.flatpak
 docs/           -> MANUAL.md, CHANGELOG.md, ARQUITECTURA.md, DIAGNOSTICO_GTK4.md, QA.md, GITHUB.md
 plan_accion.md  -> Phases 0-7 (Flathub + GitHub)
@@ -240,7 +240,7 @@ plan_accion.md  -> Phases 0-7 (Flathub + GitHub)
 
 - **v2.0.0 (now):** Qt migration, 4 sections, week view, due/prio, graph embedded, preview, `F11` fix, `a11y` + `backup` + `tray`, `.deb`/`Flatpak 6.9`.
 - **v2.1:** `SQLCipher` optional at-rest encryption, `RRULE` UI, `QPrinter` PDF export, Obsidian vault import.
-- **v2.2:** CalDAV, `QML` optional, `AppStream` Flathub publish `flatpak install flathub com.gnote.calendar`.
+- **v2.2:** CalDAV, `QML` optional, `AppStream` Flathub publish `flatpak install flathub io.github.gerardoarias.gnote_calendar`.
 
 ---
 

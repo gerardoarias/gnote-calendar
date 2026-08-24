@@ -49,7 +49,7 @@ int main(int argc, char* argv[]) {
     // Sin argumentos: intenta GUI, fallback a help
     if (argc == 1) {
 #ifdef HAVE_GTKMM
-        auto app = Gtk::Application::create(argc, argv, "com.gnote.calendar");
+        auto app = Gtk::Application::create(argc, argv, "io.github.gerardoarias.gnote_calendar");
         MainWindow win(storage);
         return app->run(win);
 #else
