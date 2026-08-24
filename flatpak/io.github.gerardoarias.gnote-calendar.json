@@ -3,7 +3,15 @@
     "runtime": "org.kde.Platform",
     "runtime-version": "6.11",
     "sdk": "org.kde.Sdk",
+    "base": "io.qt.PySide.BaseApp",
+    "base-version": "6.11",
     "command": "gnote-calendar",
+    "build-options": {
+        "env": [
+            "BASEAPP_REMOVE_WEBENGINE=1",
+            "BASEAPP_DISABLE_NUMPY=1"
+        ]
+    },
     "finish-args": [
         "--share=ipc",
         "--socket=fallback-x11",
@@ -11,6 +19,9 @@
         "--device=dri",
         "--filesystem=xdg-documents",
         "--talk-name=org.freedesktop.Notifications"
+    ],
+    "cleanup-commands": [
+        "/app/cleanup-BaseApp.sh"
     ],
     "modules": [
         {
@@ -27,18 +38,16 @@
                 "install -Dm644 packaging/gnote-calendar.svg /app/share/icons/hicolor/scalable/apps/io.github.gerardoarias.gnote-calendar.svg",
                 "install -Dm644 flatpak/io.github.gerardoarias.gnote-calendar.metainfo.xml /app/share/metainfo/io.github.gerardoarias.gnote-calendar.metainfo.xml",
                 "install -Dm644 requirements.txt /app/share/gnote-calendar/requirements.txt",
-                "install -Dm755 -d /app/bin",
                 "printf '#!/bin/sh\\nexec python3 /app/share/gnote-calendar/gui_qt.py \"$@\"\\n' > /app/bin/gnote-calendar",
                 "chmod +x /app/bin/gnote-calendar",
-                "python3 -m ensurepip --upgrade",
-                "python3 -m pip install --prefix=/app --no-build-isolation PySide6==6.7.3 Markdown"
+                "python3 -m pip install --prefix=/app --no-build-isolation Markdown"
             ],
             "sources": [
                 {
                     "type": "git",
                     "url": "https://github.com/gerardoarias/gnote-calendar",
                     "tag": "v2.0.0",
-                    "commit": "a812c42dfa28977931f6f1768f0e9bda4f511acc"
+                    "commit": "80aa592aebbc27ab13d22fe328fd9ba90ee24c8c"
                 }
             ]
         }
